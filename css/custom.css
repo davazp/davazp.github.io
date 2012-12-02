@@ -45,3 +45,5 @@ pre.src {
 
 .nav-list .nav-list-icons { list-style-type: none; margin: 0px 0px 10px 0px; }
 .nav-list .nav-list-icons li { display: inline; }
+
+span.datepost { font-size: 16px; }

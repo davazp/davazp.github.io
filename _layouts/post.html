@@ -6,6 +6,7 @@
       {% include title.html %}
       <div class="row-fluid">
         <div class="span9">
+          <span class="datepost muted">{{ page.date | date: "%d %B %Y"}}</span>
           <h2>{{ page.title }}</h2>
           {{ content }}
           <br>
