@@ -38,12 +38,28 @@ h1 a, h1 a:hover {
 .license { font-size: 11px; text-align: center; }
 .license img { margin-top: 5px; }
 
+.content img {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
 pre.src {
     color: #e2e2e2;
     background-color: #222222;
+}
+
+code {
+    white-space: nowrap;
 }
 
 .nav-list .nav-list-icons { list-style-type: none; margin: 0px 0px 10px 0px; }
 .nav-list .nav-list-icons li { display: inline; }
 
 span.datepost { font-size: 16px; }
+
+#moreinfo-toggle {
+    display: block;
+    margin: 0 auto 30px auto;
+}

@@ -1,0 +1,3 @@
+#+TITLE: I wrote a Forth implementation for x86
+#+KEYWORDS: forth, compiler, x86, stack-based
+#+INCLUDE: ../eulex.org
