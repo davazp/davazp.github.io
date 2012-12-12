@@ -7,9 +7,22 @@
       <div class="row-fluid">
         <div class="content span9">
           <span class="datepost muted">{{ page.date | date: "%d %B %Y"}}</span>
+
           <h2>{{ page.title }}</h2>
+          <div class="taglist">
+          {% if page.tags.size > 0 %}
+          Tags:
+          <ul>
+          {% for tag in page.tags %}
+          <li>{{ tag }}</li>
+          {% endfor %}
+          </ul>
+          {% endif %}
+          </div>
+
           {{ content }}
           <br>
+
           {% include comments.html %}
         </div>
         <div class="span3">

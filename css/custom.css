@@ -63,3 +63,10 @@ span.datepost { font-size: 16px; }
     display: block;
     margin: 0 auto 30px auto;
 }
+
+
+h2 { margin-bottom: 0px; }
+
+.taglist { color: grey; margin-bottom: 5px; }
+.taglist ul { display: inline; margin-left: 0px; }
+.taglist li { display: inline; list-style: none; }
