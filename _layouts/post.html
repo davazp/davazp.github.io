@@ -21,6 +21,16 @@
           </div>
 
           {{ content }}
+
+          <ul class="pager">
+            <li class="previous{% unless page.previous %} disabled{% endunless %}">
+              <a href="{{ page.previous.url }}">Previous</a>
+            </li>
+            <li class="next{% unless page.next %} disabled{% endunless %}">
+              <a href="{{ page.next.url }}">Next</a>
+            </li>
+          </ul>
+
           <br>
 
           {% include comments.html %}
