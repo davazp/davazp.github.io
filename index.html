@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% for post in site.posts limit:4 %}
+{% for post in paginator.posts %}
 
 <span class="datepost muted">{{ post.date | date: "%d %B %Y"}}</span>
 <h2>{{ post.title }}</h2>
@@ -23,6 +23,35 @@ layout: default
   <a class="pull-right" href="{{ post.url }}#disqus_thread">Comments</a>
 </div>
 
-<br>
-
 {% endfor %}
+
+
+<div class="pagination pagination-centered">
+
+  <ul>
+    <!-- Prev button -->
+    {% if paginator.previous_page %}
+      {% if paginator.previous_page == 1 %}
+      <li><a href="/">&laquo;</a></li>
+      {% else %}
+      <li><a href="/page{{paginator.previous_page}}">&laquo;</a></li>
+      {% endif %}
+    {% else %}
+      <li class="disabled"><a href="#">&laquo;</a><li>
+    {% endif %}
+
+    <!-- Page numbers -->
+    <li {% if paginator.page == 1 %}class="active"{% endif %}><a href="/">1</a></li>
+    {% for count in (2..paginator.total_pages) %}
+    <li {% if count == paginator.page %}class="active"{% endif %}><a href="/page{{count}}">{{count}}</a></li>
+    {% endfor %}
+
+    <!-- Next button -->
+    {% if paginator.next_page %}
+    <li><a href="/page{{paginator.next_page}}">&raquo;</a></li>
+    {% else %}
+    <li class="disabled"><a href="#">&raquo;</a></li>
+    {% endif %}
+
+  </ul>
+</div>

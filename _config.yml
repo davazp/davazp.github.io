@@ -1,6 +1,6 @@
 # Jekyll config
-exclude: ["generate.el", "org"]
-auto: true
-
 title: David Vázquez
 disqus: davazp
+paginate: 4
+exclude: ["generate.el", "org"]
+auto: true
