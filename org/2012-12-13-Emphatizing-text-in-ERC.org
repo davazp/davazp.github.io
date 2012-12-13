@@ -1,0 +1,36 @@
+#+TITLE: Emphatizing text in ERC
+#+KEYWORDS: emacs, emacs-lisp, erc, irc
+
+I have realized [[http://www.gnu.org/software/emacs/manual/html_mono/erc.html][ERC]] supports control characters to emphatize text
+as *bold*, _underline_...  However, I prefer =*foo*=, =/bar/= and
+=_foobar_= syntax, just like org-mode and Gnus. So I have added the
+following code to my .emacs to do the job:
+
+#+BEGIN_SRC emacs-lisp
+  (defun erc-emphatize ()
+    (when (eq erc-interpret-controls-p t)
+      (goto-char (point-min))
+      (while (re-search-forward "\\(?:^\\|\\s-\\)\\*\\([^*]+\\)\\*\\(:?$\\|\\s-\\)" nil t)
+        (replace-match "\C-b\\1\C-o" nil nil))
+      (goto-char (point-min))
+      (while (re-search-forward "\\(?:^\\|\\s-\\)_\\([^_]+\\)_\\(?:$\\|\\s-\\)" nil t)
+        (replace-match "\C-_\\1\C-O" nil nil))
+      (goto-char (point-min))
+      (while (re-search-forward "\\(?:^\\|\\s-\\)/\\([^/]+\\)/\\(?:$\\|\\s-\\)" nil t)
+        (replace-match "\C-V\\1\C-O" nil nil))))
+
+  (add-hook 'erc-send-pre-hook
+            (lambda (string)
+              (with-temp-buffer
+                (insert string)
+                (erc-emphatize)
+                (setq str (buffer-substring (point-min) (point-max))))))
+
+  (add-hook 'erc-insert-modify-hook 'erc-emphatize)
+#+END_SRC
+
+The code transforms the text before sending it, so it will work
+without changes in the IRC client of the other person, supposed
+control characters is supported of course. If you want to send/receive
+text literally, just disable control characters interpretation with
+=C-c C-c= in the ERC buffer.
