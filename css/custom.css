@@ -38,6 +38,8 @@ h1 a, h1 a:hover {
 .license { font-size: 11px; text-align: center; }
 .license img { margin-top: 5px; }
 
+.content { margin-bottom: 50px; }
+
 .content img {
     margin-top: 10px;
     margin-bottom: 30px;
@@ -45,13 +47,14 @@ h1 a, h1 a:hover {
     margin-left: auto;
     margin-right: auto;
 }
-pre.src {
+
+.content pre {
+    overflow: auto;
+    width: 90%;
+    word-wrap: normal;
+    white-space: pre;
     color: #e2e2e2;
     background-color: #222222;
-}
-
-code {
-    white-space: nowrap;
 }
 
 .nav-list .nav-list-icons { list-style-type: none; margin: 0px 0px 10px 0px; }
@@ -65,7 +68,8 @@ span.datepost { font-size: 16px; }
 }
 
 
-h2 { margin-bottom: 0px; }
+h2 { margin-bottom: 0px; font-size: 200%; }
+h3 { margin-bottom: 0px; font-size: 140%; }
 
 .taglist { color: grey; margin-bottom: 5px; }
 .taglist ul { display: inline; margin-left: 0px; }

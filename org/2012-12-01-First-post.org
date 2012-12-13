@@ -1,4 +1,5 @@
 #+TITLE: First post
+#+KEYWORDS:
 
 Hello everybody. Here it is, a new github-hosted blog. You can know
 something

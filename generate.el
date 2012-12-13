@@ -59,8 +59,8 @@
 
           (goto-char (point-min))
           (let ((case-fold-search t))
-            (re-search-forward "^#\\+KEYWORDS:\s?\\(.*\\)$"))
-          (setq keywords (split-string (match-string 1) "," t))
+            (when (re-search-forward "^#\\+KEYWORDS:\s?\\(.*\\)$" nil t)
+              (setq keywords (split-string (match-string 1) "," t))))
 
           (org-export-as-html 3 nil blog-org-options output-buffer t))
         (with-current-buffer (get-buffer output-buffer)
