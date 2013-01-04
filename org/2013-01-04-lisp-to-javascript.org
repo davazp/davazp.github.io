@@ -1,0 +1,15 @@
+#+TITLE: Lisp to Javascript compiler
+#+KEYWORDS: lisp javascript compiler
+
+[[http://puntoblogspot.blogspot.ie/][Raimon Grau]] and I have been working on a simple Lisp to Javascript
+compiler, in order to better understand how to bootstrap it. Now we
+got it. It compiles itself and the resulting code can be used from the
+browser. It can even call its own internals, which is quite nice.
+
+Is not very helpful, you can [[http://davazp.github.com/ecmalisp/ecmalisp.html][try it]]. Now I have to think if it could
+be useful for something... maybe a live Lisp tutorial, or make it
+suitable for Android. Any suggestions?
+
+The repository with the whole history is at:
+
+http://github.com/davazp/ecmalisp/
