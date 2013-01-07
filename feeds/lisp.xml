@@ -1,0 +1,29 @@
+---
+layout: nil
+---
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title }}</title>
+  <link href="{{ site.root }}"/>
+  <link type="application/atom+xml" rel="self" href="{{ site.root }}/feeds/lisp.xml"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ site.root }}/</id>
+  <author>
+    <name>{{ site.author.name }}</name>
+    <email>{{ site.author.email }}</email>
+  </author>
+  {% for post in site.posts %}{% if post.tags contains 'lisp' %}
+  <entry>
+    <id>http://davazp.net{{ post.id }}</id>
+    <link type="text/html" rel="alternate" href="http://davazp.net{{ post.url }}"/>
+    <title>{{ post.title }}</title>
+    <published>{{ post.date | date_to_xmlschema }}</published>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <author>
+      <name>David Vázquez</name>
+      <uri>{{ site.root }}{{ post.id }}</uri>
+    </author>
+    <content type="html">{{ post.content | xml_escape }}</content>
+  </entry>
+ {% endif %}{% endfor %}
+</feed>
