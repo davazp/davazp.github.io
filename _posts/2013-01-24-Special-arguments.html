@@ -1,0 +1,29 @@
+---
+title: Special arguments
+tags: [lisp]
+layout: post
+---
+
+<p>I have learnt a new trick these days. Did you know that you can
+declare an argument as a special variable? Quoting <a href="http://www.lispworks.com/documentation/HyperSpec/Body/03_daa.htm">Hyperspec</a>:
+</p>
+<blockquote>
+
+<p>Each required parameter is specified by a parameter variable var. var
+is bound as a lexical variable <i>unless it is declared special</i>.
+</p>
+</blockquote>
+
+
+<p>
+It seems to work also for optional and keyword arguments, but
+Hyperspec does not mention it explicitly. For example, yo can do:
+</p>
+
+
+
+<pre class="src src-lisp"><span style="color: #696969;">(</span><span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">*variable*</span><span style="color: #696969;">)</span>
+<span style="color: #696969;">(</span><span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">foo</span> <span style="color: #696969;">()</span> *variable*<span style="color: #696969;">)</span>
+<span style="color: #696969;">(</span><span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">foobar</span> <span style="color: #696969;">(</span><span style="color: #228b22;">&amp;optional</span> *variable*<span style="color: #696969;">)</span>
+  <span style="color: #696969;">(</span>foo<span style="color: #696969;">))</span>
+</pre>
