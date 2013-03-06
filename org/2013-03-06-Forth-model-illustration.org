@@ -5,7 +5,7 @@ I like old systems which expose a good part of their internals,
 specially when they are so simple. I created this animation using
 [[http://ditaa.sourceforge.net/][ditaa]] to illustrate how execution is done in Forth:
 
-[[./img/forth.gif]]
+[[img:eulex/forth.gif]]
 
 Of course, it only makes sense if you already know Forth. But I guess
 you do not know many languages where such thing is possible.
