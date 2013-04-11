@@ -12,26 +12,26 @@ following code to my .emacs to do the job:
 
 
 
-<pre class="src src-emacs-lisp"><span style="color: #696969;">(</span><span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">erc-emphasize</span> <span style="color: #696969;">()</span>
-  <span style="color: #696969;">(</span><span style="color: #a020f0;">when</span> <span style="color: #696969;">(</span>eq erc-interpret-controls-p t<span style="color: #696969;">)</span>
-    <span style="color: #696969;">(</span>goto-char <span style="color: #696969;">(</span>point-min<span style="color: #696969;">))</span>
-    <span style="color: #696969;">(</span><span style="color: #a020f0;">while</span> <span style="color: #696969;">(</span>re-search-forward <span style="color: #8b2252;">"</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(?:</span><span style="color: #8b2252;">^</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">\\s-</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(</span><span style="color: #8b2252;">\\*</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(</span><span style="color: #8b2252;">[</span><span style="color: #8b2252;">^</span><span style="color: #8b2252;">*]+</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252;">\\*</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(</span><span style="color: #8b2252;">:?$</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">\\s-</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252;">"</span> nil t<span style="color: #696969;">)</span>
-      <span style="color: #696969;">(</span>replace-match <span style="color: #8b2252;">"\C-b\\2\C-o"</span> nil nil nil 1<span style="color: #696969;">))</span>
-    <span style="color: #696969;">(</span>goto-char <span style="color: #696969;">(</span>point-min<span style="color: #696969;">))</span>
-    <span style="color: #696969;">(</span><span style="color: #a020f0;">while</span> <span style="color: #696969;">(</span>re-search-forward <span style="color: #8b2252;">"</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(?:</span><span style="color: #8b2252;">^</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">\\s-</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(</span><span style="color: #8b2252;">_</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(</span><span style="color: #8b2252;">[</span><span style="color: #8b2252;">^</span><span style="color: #8b2252;">_]+</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252;">_</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(?:</span><span style="color: #8b2252;">$</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">\\s-</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252;">"</span> nil t<span style="color: #696969;">)</span>
-      <span style="color: #696969;">(</span>replace-match <span style="color: #8b2252;">"\C-_\\2\C-O"</span> nil nil nil 1<span style="color: #696969;">))</span>
-    <span style="color: #696969;">(</span>goto-char <span style="color: #696969;">(</span>point-min<span style="color: #696969;">))</span>
-    <span style="color: #696969;">(</span><span style="color: #a020f0;">while</span> <span style="color: #696969;">(</span>re-search-forward <span style="color: #8b2252;">"</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(?:</span><span style="color: #8b2252;">^</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">\\s-</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(</span><span style="color: #8b2252;">/</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(</span><span style="color: #8b2252;">[</span><span style="color: #8b2252;">^</span><span style="color: #8b2252;">/]+</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252;">/</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(?:</span><span style="color: #8b2252;">$</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">\\s-</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252;">"</span> nil t<span style="color: #696969;">)</span>
-      <span style="color: #696969;">(</span>replace-match <span style="color: #8b2252;">"\C-V\\2\C-O"</span> nil nil nil 1<span style="color: #696969;">))))</span>
+<pre class="example">(defun erc-emphasize ()
+  (when (eq erc-interpret-controls-p t)
+    (goto-char (point-min))
+    (while (re-search-forward "\\(?:^\\|\\s-\\)\\(\\*\\([^*]+\\)\\*\\)\\(:?$\\|\\s-\\)" nil t)
+      (replace-match "\C-b\\2\C-o" nil nil nil 1))
+    (goto-char (point-min))
+    (while (re-search-forward "\\(?:^\\|\\s-\\)\\(_\\([^_]+\\)_\\)\\(?:$\\|\\s-\\)" nil t)
+      (replace-match "\C-_\\2\C-O" nil nil nil 1))
+    (goto-char (point-min))
+    (while (re-search-forward "\\(?:^\\|\\s-\\)\\(/\\([^/]+\\)/\\)\\(?:$\\|\\s-\\)" nil t)
+      (replace-match "\C-V\\2\C-O" nil nil nil 1))))
 
-<span style="color: #696969;">(</span>add-hook 'erc-send-pre-hook
-          <span style="color: #696969;">(</span><span style="color: #a020f0;">lambda</span> <span style="color: #696969;">(</span>string<span style="color: #696969;">)</span>
-            <span style="color: #696969;">(</span><span style="color: #a020f0;">with-temp-buffer</span>
-              <span style="color: #696969;">(</span>insert string<span style="color: #696969;">)</span>
-              <span style="color: #696969;">(</span>erc-emphasize<span style="color: #696969;">)</span>
-              <span style="color: #696969;">(</span>setq str <span style="color: #696969;">(</span>buffer-substring <span style="color: #696969;">(</span>point-min<span style="color: #696969;">)</span> <span style="color: #696969;">(</span>point-max<span style="color: #696969;">))))))</span>
+(add-hook 'erc-send-pre-hook
+          (lambda (string)
+            (with-temp-buffer
+              (insert string)
+              (erc-emphasize)
+              (setq str (buffer-substring (point-min) (point-max))))))
 
-<span style="color: #696969;">(</span>add-hook 'erc-insert-modify-hook 'erc-emphasize<span style="color: #696969;">)</span>
+(add-hook 'erc-insert-modify-hook 'erc-emphasize)
 </pre>
 
 

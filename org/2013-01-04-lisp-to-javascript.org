@@ -1,5 +1,5 @@
 #+TITLE: Lisp to Javascript compiler
-#+KEYWORDS: lisp, javascript, compilerg
+#+KEYWORDS: lisp, javascript, compiler
 
 [[http://puntoblogspot.blogspot.ie/][Raimon Grau]] and I have been working on a simple Lisp to Javascript
 compiler, in order to better understand how to bootstrap it. Now we

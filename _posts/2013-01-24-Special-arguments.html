@@ -22,8 +22,9 @@ Hyperspec does not mention it explicitly. For example, yo can do:
 
 
 
-<pre class="src src-lisp"><span style="color: #696969;">(</span><span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">*variable*</span><span style="color: #696969;">)</span>
-<span style="color: #696969;">(</span><span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">foo</span> <span style="color: #696969;">()</span> *variable*<span style="color: #696969;">)</span>
-<span style="color: #696969;">(</span><span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">foobar</span> <span style="color: #696969;">(</span><span style="color: #228b22;">&amp;optional</span> *variable*<span style="color: #696969;">)</span>
-  <span style="color: #696969;">(</span>foo<span style="color: #696969;">))</span>
+<pre class="example">(defvar *variable*)
+(defun foo () *variable*)
+(defun foobar (&amp;optional *variable*)
+  (foo))
 </pre>
+
