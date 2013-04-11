@@ -27,7 +27,7 @@
 (require 'org)
 
 (defvar blog-root-directory
-  (expand-file-name "~/projects/davazp.github.com/"))
+  (expand-file-name "~/Projects/davazp.github.com/"))
 
 (defvar blog-org-options
   (list :table-of-contents nil
