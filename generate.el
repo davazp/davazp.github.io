@@ -62,7 +62,7 @@
             (when (re-search-forward "^#\\+KEYWORDS:\s?\\(.*\\)$" nil t)
               (setq keywords (split-string (match-string 1) "," t))))
 
-          (org-export-as-html 3 nil blog-org-options output-buffer t))
+          (org-export-as-html 3 blog-org-options output-buffer t))
         (with-current-buffer (get-buffer output-buffer)
           (goto-char (point-min))
           (insert "---\n")
