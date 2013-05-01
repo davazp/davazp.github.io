@@ -1,8 +1,8 @@
 #+TITLE: The surprising JSCL rising
 #+KEYWORDS: lisp
 
-I am just back of a few days of holidays and have seen how active JSCL
-is!  It is really exciting.
+I am just back from a few days of holidays and have seen how active
+JSCL is!  It is really exciting.
 
 This rising is due to [[https://github.com/abeaumont][abeaumont]] probably. I stopped working, but he
 came up with an idea I liked. It is, why don't integrate JSCL into
