@@ -10,7 +10,7 @@ came up with an idea I liked it. It is, why don't integrate JSCL into
 practical reason!  We did some tests locally and it seemed to work,
 but now it is time for improving JSCL itself.
 
-It is not the only platform which JSCL could run. I plan to add
+It is not the only platform which JSCL could run on. I plan to add
 support for [[http://nodejs.org/][Node JS]]. Indeed, it will let us use the REPL and tests in
 the terminal in addition to the browser, which is much more convenient
 way to program.
