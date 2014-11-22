@@ -3,6 +3,8 @@ disqus: davazp
 paginate: 4
 exclude: ["generate.el", "org"]
 root: http://davazp.net
+markdown: redcarpet
+extensions: [fenced_code_blocks]
 
 author:
   name: David Vázquez
