@@ -4,6 +4,8 @@ layout: default
 
 {% for post in paginator.posts %}
 
+<div class="post">
+
 <span class="datepost muted">{{ post.date | date: "%d %B %Y"}}</span>
 <h2>{{ post.title }}</h2>
 
@@ -21,6 +23,8 @@ layout: default
 <div class="content">
   {{ post.content }}
   <a class="pull-right" href="{{ post.url }}#disqus_thread">Comments</a>
+</div>
+
 </div>
 
 {% endfor %}

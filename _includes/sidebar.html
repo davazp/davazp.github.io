@@ -1,7 +1,7 @@
-<ol class="well well-large nav nav-list">
+<ol class="sidebar well well-large nav nav-list">
   <li class="nav-header">Recent posts</li>
   {% for post in site.posts limit:4 %}
-  <li{% if post.url == page.url %} class="active"{% endif %}><a href="{{ post.url }}">{{ post.title | truncate:25 }}</a></li>
+  <li{% if post.url == page.url %} class="sidebar-post active"{% endif %}><a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
   <li class="nav-header">Syndication</li>
   <li>
