@@ -4,14 +4,12 @@ tags: [forth]
 layout: post
 ---
 
-<p>I like old systems which expose a good part of their internals,
+I like old systems which expose a good part of their internals,
 specially when they are so simple. I created this animation using
-<a href="http://ditaa.sourceforge.net/">ditaa</a> to illustrate how execution is done in Forth:
-</p>
-<p>
-<img src="../../../img/eulex/forth.gif"  alt="../../../img/eulex/forth.gif" />
-</p>
-<p>
+[ditaa](http://ditaa.sourceforge.net/) to illustrate how execution is
+done in Forth:
+
+![forth-model-ilustration](/img/eulex/forth.gif)
+
 Of course, it only makes sense if you already know Forth. But I guess
 you do not know many languages where such thing is possible.
-</p>
