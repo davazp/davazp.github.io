@@ -1,3 +1,0 @@
-#+TITLE: I wrote a Forth implementation for x86
-#+KEYWORDS: forth, eulex
-#+INCLUDE: ../eulex.org
