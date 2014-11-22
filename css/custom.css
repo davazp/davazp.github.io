@@ -21,14 +21,7 @@ h1 a, h1 a:hover {
     margin-top: 20px;
     border: 1px solid;
     padding: 20px;
-    background: rgb(242,242,242); /* Old browsers */
-    background: -moz-linear-gradient(left,  rgba(242,242,242,1) 0%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 80%, rgba(242,242,242,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(242,242,242,1)), color-stop(20%,rgba(255,255,255,1)), color-stop(80%,rgba(255,255,255,1)), color-stop(100%,rgba(242,242,242,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(left,  rgba(242,242,242,1) 0%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 80%,rgba(242,242,242,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left,  rgba(242,242,242,1) 0%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 80%,rgba(242,242,242,1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(left,  rgba(242,242,242,1) 0%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 80%,rgba(242,242,242,1) 100%); /* IE10+ */
-    background: linear-gradient(to right,  rgba(242,242,242,1) 0%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 80%,rgba(242,242,242,1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#f2f2f2',GradientType=1 ); /* IE6-9 */
+    background: white;
 }
 
 .container-narrow > hr {
