@@ -1,5 +1,9 @@
 /* Changes to bootstrap */
 
+body {
+    padding-bottom: 40px;
+}
+
 h1 a, h1 a:hover {
     color: black;
     text-decoration: none;
