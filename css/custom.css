@@ -54,7 +54,7 @@ h2 { margin-bottom: 0px; font-size: 200%; }
 h3 { margin-bottom: 0px; font-size: 140%; }
 
 .taglist { color: grey; margin-bottom: 5px; }
-.taglist ul { display: inline; margin-left: 0px; }
+.taglist ul { display: inline; margin-left: 0px; padding: 0; }
 .taglist li { display: inline; list-style: none; }
 
 
