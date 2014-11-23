@@ -30,9 +30,8 @@ layout: default
 {% endfor %}
 
 
-<div class="pagination pagination-centered">
-
-  <ul>
+<nav>
+  <ul class="pagination">
     <!-- Prev button -->
     {% if paginator.previous_page %}
       {% if paginator.previous_page == 1 %}
@@ -58,4 +57,4 @@ layout: default
     {% endif %}
 
   </ul>
-</div>
+</nav>
