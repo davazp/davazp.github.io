@@ -6,7 +6,10 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-3 col-md-push-9">
+          {% include sidebar.html %}
+        </div>
+        <div class="col-md-9 col-md-pull-3">
           <span class="datepost muted">{{ page.date | date: "%d %B %Y"}}</span>
 
           <h2>{{ page.title }}</h2>
@@ -35,9 +38,6 @@
           <br>
 
           {% include comments.html %}
-        </div>
-        <div class="col-md-3">
-          {% include sidebar.html %}
         </div>
       </div>
     </div>
