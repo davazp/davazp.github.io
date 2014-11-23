@@ -75,3 +75,9 @@ h3 { margin-bottom: 0px; font-size: 140%; }
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+.blockseparator {
+    width: 100%;
+    height: 40px;
+    background: black;
+}
