@@ -7,9 +7,8 @@ body {
     background: #202020;
     margin: 0;
     color: white;
-    background-color: #000000;
-    background-image: url(/img/3px-tile.png);
-    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    background-color: #111;
+    background-image: url(/img/otis-redding.png);
 }
 
 a {
@@ -17,8 +16,8 @@ a {
 }
 
 code {
-    border: 1px dotted gray;
-    padding: 0 2px;
+    /* border: 1px dotted gray; */
+    /* padding: 0 2px; */
     /* background-color: #fcfcfc; */
 }
 
@@ -48,6 +47,28 @@ h1 a, h1 a:hover {
 }
 
 .content { margin-bottom: 50px; }
+
+.pager {
+    list-style: none;
+}
+.post .pager a {
+    color: white;
+}
+.pager .next, .pager .previous {
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    background: #c00;
+    color: white;
+}
+
+.pager .next {
+    float: right;
+}
+
+.pager .previous {
+    float: left;
+}
 
 .content img {
     max-width: 100%;
@@ -97,7 +118,7 @@ h3 { margin-bottom: 0px; font-size: 140%; }
     border: 1px solid lightGray;
     padding: 10px;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 30px;
     -webkit-box-shadow: 0 0 2px 0 rgba(0,0,0,0.5);
     -moz-box-shadow: 0 0 2px 0 rgba(0,0,0,0.5);
