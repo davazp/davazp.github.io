@@ -30,6 +30,7 @@ h1 a, h1 a:hover {
 .content { margin-bottom: 50px; }
 
 .content img {
+    width: 100%;
     margin-top: 10px;
     margin-bottom: 30px;
     display:block;
