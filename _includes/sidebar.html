@@ -1,12 +1,5 @@
-<ol class="sidebar well well-large nav nav-list">
-  <li class="nav-header">Recent posts</li>
-  {% for post in site.posts limit:4 %}
-  <li class="sidebar-post {% if post.url == page.url %}active{% endif %}"><a href="{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-  <li class="nav-header">Syndication</li>
-  <li>
-    <ul class="nav-list-icons">
-      <li><a href="/feeds/atom.xml"><img src="/img/feed-icon.png" alt="feed"/></a></li>
-    </ul>
-  </li>
-</ol>
+<h2>Recent posts</h2>
+
+{% for post in site.posts limit:4 %}
+<li class="sidebar-post {% if post.url == page.url %}active{% endif %}"><a href="{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %}

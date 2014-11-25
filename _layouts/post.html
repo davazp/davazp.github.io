@@ -6,39 +6,43 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-3 col-md-push-9">
+        <div class="col-md-8">
+          <div class="post">
+            <span class="datepost text-muted">{{ page.date | date: "%d %B %Y"}}</span>
+
+            <h2>{{ page.title }}</h2>
+            <div class="taglist">
+              {% if page.tags.size > 0 %}
+              Tags:
+              <ul>
+                {% for tag in page.tags %}
+                <li>{{ tag }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </div>
+
+            {{ content }}
+
+            <ul class="pager">
+              <li class="previous{% unless page.previous %} disabled{% endunless %}">
+                <a href="{{ page.previous.url }}">Previous</a>
+              </li>
+              <li class="next{% unless page.next %} disabled{% endunless %}">
+                <a href="{{ page.next.url }}">Next</a>
+              </li>
+            </ul>
+
+            <br>
+
+            {% include comments.html %}
+          </div>
+        </div>
+        
+        <div class="col-md-4">
           {% include sidebar.html %}
         </div>
-        <div class="col-md-9 col-md-pull-3">
-          <span class="datepost muted">{{ page.date | date: "%d %B %Y"}}</span>
-
-          <h2>{{ page.title }}</h2>
-          <div class="taglist">
-          {% if page.tags.size > 0 %}
-          Tags:
-          <ul>
-          {% for tag in page.tags %}
-          <li>{{ tag }}</li>
-          {% endfor %}
-          </ul>
-          {% endif %}
-          </div>
-
-          {{ content }}
-
-          <ul class="pager">
-            <li class="previous{% unless page.previous %} disabled{% endunless %}">
-              <a href="{{ page.previous.url }}">Previous</a>
-            </li>
-            <li class="next{% unless page.next %} disabled{% endunless %}">
-              <a href="{{ page.next.url }}">Next</a>
-            </li>
-          </ul>
-
-          <br>
-
-          {% include comments.html %}
-        </div>
+        
       </div>
     </div>
 

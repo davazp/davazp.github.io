@@ -3,11 +3,8 @@
   {% include head.html %}
   <body>
     {% include navbar.html %}
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-3 col-md-push-9">{% include sidebar.html %}</div>
-        <div class="col-md-9 col-md-pull-3">{{ content }}</div>
-      </div>
+    <div class="container">
+      {{ content }}
     </div>
     {% include footer.html %}
     {% include footscripts.html %}
