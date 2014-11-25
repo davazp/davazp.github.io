@@ -4,9 +4,9 @@
   <body>
     {% include navbar.html %}
 
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 col-md-offset-2">
           <div class="post content">
             <span class="datepost text-muted">{{ page.date | date: "%d %B %Y"}}</span>
 
@@ -39,14 +39,12 @@
           </div>
         </div>
         
-        <div class="col-md-4">
+        <div class="col-md-2">
           {% include sidebar.html %}
         </div>
         
       </div>
     </div>
-
-    {% include footer.html %}
 
     {% include footscripts.html %}
   </body>
