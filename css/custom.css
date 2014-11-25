@@ -34,7 +34,7 @@ h1 a, h1 a:hover {
     margin-right: auto;
 }
 
-.content pre {
+pre {
     overflow: auto;
     width: 90%;
     word-wrap: normal;
