@@ -28,8 +28,8 @@ package, the dependencies between the files can be inferred.
 This style of programming was introduced a few years ago by *fastpath*
 and *quick-build*. But recently, the *de facto* standard Common Lisp
 build system [ASDF3](http://common-lisp.net/project/asdf/) added
-support for it the *asdf-package-system* extension. As a consequence,
-now it is easier than ever to use it.
+support for it with the *asdf-package-system* extension. As a
+consequence, now it is easier than ever to use it.
 
 So, stay with me for the next minutes and you will learn how to use
 this new approach in your projects. I hope you find it useful.
@@ -54,9 +54,9 @@ file. The content of this file is:
 As I mentioned in the introduction, this feature is provided by the
 *asdf-package-system* ASDF's extension. The highlighed lines specify
 that we want to use it for this package. Note that, unlike ordinary
-ASDF system, it does not specify components of the system. It seems
-there are not files this system is comprised of. But, it is not the
-case. It is the first of the inferences that ASDF does:
+ASDF system, it does not specify components of the system. What files
+are this system comprised of? Well, it is the first of the inferences
+that ASDF does:
 
 > Systems prefixed with `project/` refer to files from the directory
 > where the system is defined.
@@ -126,7 +126,7 @@ can specify what system it uses. You do not need to specify
 `:depends-on (:cl-ppcre)` on the `project.asd` file.
 
 
-### A last trick
+### A Last Trick
 
 Most of the time, you do not want to "export" two or more packages,
 but just one with all the symbols from the "subpackages". This can be
