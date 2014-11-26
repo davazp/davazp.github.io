@@ -42,7 +42,7 @@ different from defining an ordinary system with ASDF.
 Assuming we are in a new empty directory, we create a `project.asd`
 file. The content of this file is:
 
-{% highlight common-lisp hl_lines="3 4" %}
+{% highlight common-lisp hl_lines="4 5" %}
 (asdf:defsystem :project
   :name "My Project"
   :version "0.0.1"
