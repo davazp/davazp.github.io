@@ -1,5 +1,5 @@
 ---
-title: How to write a modern Lisp library with ASDF3 and Package System
+title: How to write a modern Lisp library with ASDF3 and Package Inferred System
 tags: [lisp]
 layout: post
 ---
@@ -126,6 +126,20 @@ and finally `addons.lisp`. The dependencies are explicit, every file
 can specify what system it uses. You do not need to specify
 `:depends-on (:cl-ppcre)` on the `project.asd` file.
 
+### Integration with other systems
+
+We have said that ASDF will downcase the packages in *use* or
+*import-from*, so the file depends on a system of the same name. But
+what if the system that provides such a package has no the same name?
+For example, the system *closer-mop* provides a package named
+*c2cl*. In order to let ASDF know how to find the system for a
+package, we can call the function `register-system-packages` with the
+name of the systems and the packages it provides as argument. In our
+case, we would include the following in our `project.asd`:
+
+```common-lisp
+(register-system-packages :closer-mop '(:c2cl))
+```
 
 ### A Last Trick
 
