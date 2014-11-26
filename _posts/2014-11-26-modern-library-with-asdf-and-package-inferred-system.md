@@ -37,8 +37,9 @@ this new approach in your projects. I hope you find it useful.
 ### How to use it
 
 
-Firstly, we have to enable the *asdf-package-system* extension on our
-system named `project`
+First of all, we have to enable the *asdf-package-system* extension on
+our system. We will work on a system named `project` as definition
+follows
 
 {% highlight common-lisp hl_lines="4 5" %}
 (asdf:defsystem :project
@@ -49,13 +50,13 @@ system named `project`
   :depends-on (:project/addons))
 {% endhighlight %}
 
-It defines a correspondence between systems, packages and files. A
-system `project/foo` refers the file `foo.lisp`, which have to provide
-a package `project/foo`, and whose *used* and *imported* packages
-refer to systems of the same name.
+This defines a correspondence between systems, packages and files. A
+system `project/foo/bar` refers the file `foo/bar.lisp`, which have to
+provide a package `project/foo/bar`, and whose *used* and *imported*
+packages refer to systems of the same name.
 
-So, because `project` depends on `project/addons`, the file
-`addons.lisp` must be loaded first. The content of `addons.lisp`
+For example, as the system `project` depends on `project/addons`, the
+file `addons.lisp` must be loaded first. The content of `addons.lisp`
 starts with:
 
 {% highlight common-lisp hl_lines="2" %}
@@ -72,7 +73,7 @@ starts with:
 
 Note that it uses the package `project/core` and "import" the
 `cl-ppcre` one. Therefore, ASDF will infer that it depends on both the
-systems [cl-ppcre](http://weitz.de/cl-ppcre/) and `project/core`, so
+*systems* [cl-ppcre](http://weitz.de/cl-ppcre/) and `project/core`, so
 they must be loaded first. But remember, the system `project/core`
 refers to the file `core.lisp`:
 
@@ -88,7 +89,8 @@ refers to the file `core.lisp`:
 {% endhighlight %}
 
 
-So, if we load our system
+And that is all. This file has no external dependencies. Then, if we
+try to load our system
 
 ```common-lisp
 (asdf:load-system "project")
