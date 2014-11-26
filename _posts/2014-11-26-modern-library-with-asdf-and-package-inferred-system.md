@@ -14,10 +14,9 @@ continue.
 The most common way that people use packages nowadays is by adding a
 `packages.lisp` or `package.lisp` file. This file is usually the first
 file to be loaded and define the packages that the other files
-use. The package can *use* other packages, and *export* some symbols
-for the packages than *use* it. This approach has worked for many
-projects. However, when packages become larger, it requires discipline
-to manage the dependencies between the files.
+use. This approach has worked for many projects. However, when
+packages become larger, it requires discipline to manage the
+dependencies between the files.
 
 An alternative approach to the definition of packages is named *one
 package per file*. As the name suggests, it consists in starting every
@@ -34,14 +33,12 @@ consequence, now it is easier than ever to use it.
 So, stay with me for the next minutes and you will learn how to use
 this new approach in your projects. I hope you find it useful.
 
-### How to use asdf-package-system
 
-The first thing we need to do is to define our system. It is not much
-different from defining an ordinary system with ASDF. We will work
-with an system named *project* as an example.
+### How to use it
 
-Assuming we are in a new empty directory, we create the file
-`project.asd`. The content of this file is:
+
+Firstly, we have to enable the *asdf-package-system* extension on our
+system named `project`
 
 {% highlight common-lisp hl_lines="4 5" %}
 (asdf:defsystem :project
@@ -49,39 +46,17 @@ Assuming we are in a new empty directory, we create the file
   :version "0.0.1"
   :class :package-inferred-system
   :defsystem-depends-on (:asdf-package-system)
-  :depends-on (:project/core :project/addons))
+  :depends-on (:project/addons))
 {% endhighlight %}
 
-As I mentioned in the introduction, this feature is provided by the
-*asdf-package-system* ASDF's extension. The highlighed lines specify
-that we want to use it for this package. Note that, unlike ordinary
-ASDF system, it does not specify components of the system. What files
-are this system comprised of? Well, it is the first of the inferences
-that ASDF does:
+It defines a correspondence between systems, packages and files. A
+system `project/foo` refers the file `foo.lisp`, which have to provide
+a package `project/foo`, and whose *used* and *imported* packages
+refer to systems of the same name.
 
-> Systems prefixed with `project/` refer to files from the directory
-> where the system is defined.
-
-In the last line of our `project.asd`, note that our system depends on
-both `project/core` and `project/addon`. These two systems refer to
-two files named `core.lisp` and `addon.lisp`, respectively.
-
-Let us create a basic `core.lisp` file:
-
-{% highlight common-lisp hl_lines="3" %}
-(defpackage :project/core
-  (:use :common-lisp)
-  (:export #:hello))
-
-(in-package :project/core)
-
-(defun hello ()
-  "Hello!")
-{% endhighlight %}
-
-
-Now, let us write the file `addons.lisp` to use the function exported
-from `project/core`:
+So, because `project` depends on `project/addons`, the file
+`addons.lisp` must be loaded first. The content of `addons.lisp`
+starts with:
 
 {% highlight common-lisp hl_lines="2" %}
 
@@ -95,47 +70,44 @@ from `project/core`:
 
 {% endhighlight %}
 
-Note that `addons.lisp` use the `project/core` package. And now it
-comes the other inference that ASDF does:
+Note that it uses the package `project/core` and "import" the
+`cl-ppcre` one. Therefore, ASDF will infer that it depends on both the
+systems [cl-ppcre](http://weitz.de/cl-ppcre/) and `project/core`, so
+they must be loaded first. But remember, the system `project/core`
+refers to the file `core.lisp`:
 
-> The dependencies in the `defpackage` refer to systems with the same
-> name (downcased).
+{% highlight common-lisp hl_lines="3" %}
+(defpackage :project/core
+  (:use :common-lisp)
+  (:export #:hello))
 
-It is to say, `project/addons` depends on `project/core`.
+(in-package :project/core)
 
-Let us follow the inferences: to load the system `project/addon`, the
-file `addon.lisp` will be loaded. Because its package uses
-`project/core`, we need to load that system before. But because
-`project` system uses *asdf-package-system*, the system `project/core`
-refers to the `core.lisp` file.
-
-A package does not need to use only `project/*` packages. Indeed, if
-you look to our `addons.lisp`. It depends on the `cl-ppcre`
-package. Therefore, it depends on the system named "cl-ppcre". We did
-not import any symbols, so functions from the package must be
-referenced by prefixing the symbol with the package.
-
-We can now load the files with the correct order with just
-
-{% highlight common-lisp %}
-(asdf:load-system :project)
+(defun hello ()
+  "Hello!")
 {% endhighlight %}
 
-It will load [cl-ppcre](http://weitz.de/cl-ppcre/), then `core.lisp`
-and finally `addons.lisp`. The dependencies are explicit, every file
-can specify what system it uses. You do not need to specify
-`:depends-on (:cl-ppcre)` on the `project.asd` file.
+
+So, if we load our system
+
+```common-lisp
+(asdf:load-system "project")
+```
+
+the systems and files `core.lisp`, `cl-ppcre` and `addons.lisp` will
+be loaded in the proper order.
+
 
 ### Integration with other systems
 
-We have said that ASDF will downcase the packages in *use* or
-*import-from*, so the file depends on a system of the same name. But
-what if the system that provides such a package has no the same name?
-For example, the system *closer-mop* provides a package named
-*c2cl*. In order to let ASDF know how to find the system for a
-package, we can call the function `register-system-packages` with the
-name of the systems and the packages it provides as argument. In our
-case, we would include the following in our `project.asd`:
+What if we use a package but the system that provides such a package
+has not the same (downcased) name? For example, the system
+[closer-mop](http://common-lisp.net/project/closer/closer-mop.html)
+provides a package named *c2cl*. In order to let ASDF know how to find
+the system for a package, we can call the function
+`register-system-packages` with the name of the systems and the
+packages it provides as argument. In our case, we would include the
+following in our `project.asd`:
 
 ```common-lisp
 (register-system-packages :closer-mop '(:c2cl))
@@ -143,11 +115,10 @@ case, we would include the following in our `project.asd`:
 
 ### A Last Trick
 
-Most of the time, you do not want to "export" two or more packages,
-but just one with all the symbols from the "subpackages". This can be
-done very easily if you use the *UIOP* library shipped with ASDF.
-
-Let us define a file named `all.lisp` in our example like:
+Most of the time we want to *export* a single package with all the
+symbols from the "subpackages". This can be done very easily if you
+use the *UIOP* library shipped with ASDF. For example, let us define a
+file named `all.lisp` in our example like:
 
 {% highlight common-lisp %}
 
@@ -162,15 +133,6 @@ Now, the system `project/all` depends on both `project/core` and
 package.
 
 ### Futher information
-
-If you want to see an example, have a look to the library I am working
-these days:
-
-<https://github.com/davazp/cl-docker>
-
-Also, both ASDF3 and
-[lisp-interface-library](https://github.com/fare/lisp-interface-library/)
-use this this style of programming.
 
 If you want to know more about ASDF3 and package-system:
 
