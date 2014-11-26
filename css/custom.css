@@ -22,6 +22,8 @@ pre {
     line-height: 1.2em;
 }
 
+
+
 .header {
     margin: 0;
     margin-bottom: 30px;
@@ -149,10 +151,6 @@ pre {
     background-color: #333;
     border-left: 10px solid #555;
     border-right: 10px solid #555;
-}
-
-.language-text {
-    color: black;
 }
 
 .nav-list .nav-list-icons { list-style-type: none; margin: 0px 0px 10px 0px; }
