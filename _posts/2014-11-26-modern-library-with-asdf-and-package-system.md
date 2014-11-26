@@ -37,10 +37,11 @@ this new approach in your projects. I hope you find it useful.
 ### How to use asdf-package-system
 
 The first thing we need to do is to define our system. It is not much
-different from defining an ordinary system with ASDF.
+different from defining an ordinary system with ASDF. We will work
+with an system named *project* as an example.
 
-Assuming we are in a new empty directory, we create a `project.asd`
-file. The content of this file is:
+Assuming we are in a new empty directory, we create the file
+`project.asd`. The content of this file is:
 
 {% highlight common-lisp hl_lines="4 5" %}
 (asdf:defsystem :project
@@ -63,7 +64,7 @@ that ASDF does:
 
 In the last line of our `project.asd`, note that our system depends on
 both `project/core` and `project/addon`. These two systems refer to
-two files named `core.lisp` and `addon.lisp` respectively.
+two files named `core.lisp` and `addon.lisp`, respectively.
 
 Let us create a basic `core.lisp` file:
 
@@ -108,11 +109,11 @@ file `addon.lisp` will be loaded. Because its package uses
 `project` system uses *asdf-package-system*, the system `project/core`
 refers to the `core.lisp` file.
 
-Indeed, note that a package does not need to use only `project/*`
-packages. Indeed, if you look to our `addons.lisp`. It depends on the
-`cl-ppcre` package. Therefore, it depends on the system named
-"cl-ppcre". We did not import any symbols, so functions from the
-package must be referenced by prefixing the symbol with the package.
+A package does not need to use only `project/*` packages. Indeed, if
+you look to our `addons.lisp`. It depends on the `cl-ppcre`
+package. Therefore, it depends on the system named "cl-ppcre". We did
+not import any symbols, so functions from the package must be
+referenced by prefixing the symbol with the package.
 
 We can now load the files with the correct order with just
 
