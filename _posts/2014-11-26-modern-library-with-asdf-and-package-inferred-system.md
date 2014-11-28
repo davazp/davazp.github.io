@@ -24,7 +24,7 @@ file with a [defpackage](http://clhs.lisp.se/Body/m_defpkg.htm). Because
 dependencies between packages are explicit and every file has a unique
 package, the dependencies between the files can be inferred.
 
-This style of programming was introduced a few years ago by *fastpath*
+This style of programming was introduced a few years ago by *faslpath*
 and *quick-build*. But recently, the *de facto* standard Common Lisp
 build system [ASDF3](http://common-lisp.net/project/asdf/) added
 support for it with the *asdf-package-system* extension. As a
