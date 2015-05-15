@@ -1,12 +1,59 @@
-title: David Vázquez
-disqus: davazp
-paginate: 4
-exclude: ["generate.el", "org"]
-root: http://davazp.net
+# SITE CONFIGURATION
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://davazp.net" # the base hostname & protocol for your site
+
+# THEME-SPECIFIC CONFIGURATION
+theme:
+  # Meta
+  title: David Vázquez Púa
+  # avatar: avatar.png
+  # gravatar: 4ee38905c78a4fd79a75b92d9d4ad7c2
+  description: "Personal website" # used by search engines
+
+  footer_text: >
+   Powered by <a href="http://jekyllrb.com">Jekyll</a> with <a href="https://rohanchandra.github.io/project/type/">Type Theme</a>
+
+  # Icons
+  rss: true
+  email_address: davazp@gmail.com
+  behance:
+  github: "davazp"
+  google_plus: 
+  instagram:
+  linkedin:  # Full URL
+  pinterest:
+  reddit:
+  soundcloud:
+  stack_exchange:  # Full URL
+  steam:
+  tumblr:
+  twitter: "davazp"
+  wordpress:
+  youtube:
+
+  # Scripts
+  google_analytics: # Tracking ID, e.g. "UA-000000-01"
+  disqus_shortname: davazp
+  katex: true # Enable if using math markup
+
+  # Localization strings
+  str_follow_on: "Follow on"
+  str_rss_follow: "Follow RSS feed"
+  str_email: "Email"
+  str_next: "Next"
+  str_prev: "Prev"
+  str_continue_reading: "Continue reading"
+
+  # Colours, typography and padding
+  # Open the "_sass > base" folder, and open "_variables.scss"
+
+# PAGINATION
+paginate: 5
+
+# BUILD SETTINGS
 markdown: redcarpet
 extensions: [fenced_code_blocks]
-
-author:
-  name: David Vázquez
-  email: davazp@gmail.com
-  github: davazp
+highlighter: pygments
+sass:
+  sass_dir: _sass
+  style: :compressed

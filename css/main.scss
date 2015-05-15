@@ -1,0 +1,47 @@
+---
+---
+// External
+@import 'external/reset';
+@import 'external/syntax';
+
+// Base
+@import 'base/variables';
+@import 'base/global';
+@import 'base/utility';
+
+// Posts
+@import 'layouts/posts';
+@import 'layouts/index';
+
+// Partials
+@import 'includes/header';
+@import 'includes/footer';
+
+
+body {
+    font-size: 1.4em;
+}
+
+p {
+    line-height: 2em;
+}
+
+pre {
+    padding: 5px;
+    background: #333;
+    .nb {
+        color: #66d9ef;
+    }
+    .p {
+        color: #888;
+    }
+}
+
+article img {
+    display: block;
+    margin: 0 auto;
+}
+
+.site-header {
+    font-size: 1.2em;
+}
