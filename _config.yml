@@ -51,9 +51,7 @@ theme:
 paginate: 5
 
 # BUILD SETTINGS
-markdown: redcarpet
 extensions: [fenced_code_blocks]
-highlighter: pygments
 sass:
   sass_dir: _sass
   style: :compressed
