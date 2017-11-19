@@ -24,6 +24,11 @@ url: "http://davazp.net" # the base hostname & protocol for your site, e.g. http
 twitter_username: davazp
 github_username: davazp
 
+disqus:
+  shortname: davazp
+
+google_analytics: UA-36711110-1
+
 # Build settings
 markdown: kramdown
 theme: minima
